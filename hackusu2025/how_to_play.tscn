@@ -1,7 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://cswggr43xvls5"]
+[gd_scene load_steps=14 format=3 uid="uid://cswggr43xvls5"]
 
+[ext_resource type="Shader" path="res://scroll.gdshader" id="1_jyrs0"]
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="1_oj1ei"]
 [ext_resource type="Script" path="res://return_to_menu.gd" id="2_hdjbp"]
+[ext_resource type="Texture2D" uid="uid://d21xwspif0jff" path="res://Sprites/sea1.png" id="2_udov7"]
+[ext_resource type="Texture2D" uid="uid://dql1o0lfvix6a" path="res://Sprites/pirate_tempo.png" id="3_4awjd"]
+[ext_resource type="Texture2D" uid="uid://07fgyw2a52lo" path="res://Sprites/3_hearts.png" id="4_rxr8b"]
+[ext_resource type="Script" path="res://hearts.gd" id="5_755rm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c8otk"]
+shader = ExtResource("1_jyrs0")
+shader_parameter/speed = 0.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o1lw"]
+atlas = ExtResource("3_4awjd")
+region = Rect2(80, 80, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v5uk"]
+atlas = ExtResource("3_4awjd")
+region = Rect2(0, 0, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x1mt"]
+atlas = ExtResource("3_4awjd")
+region = Rect2(80, 0, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4kog"]
+atlas = ExtResource("3_4awjd")
+region = Rect2(0, 80, 80, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l1paa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o1lw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v5uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x1mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4kog")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.9
+}]
 
 [node name="How to Play" type="Control"]
 layout_mode = 3
@@ -11,16 +56,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Water" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_c8otk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -312.0
+offset_right = 772.0
+offset_bottom = 366.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_udov7")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -201.0
-offset_top = 56.0
+offset_top = 37.0
 offset_right = 205.0
-offset_bottom = 136.0
+offset_bottom = 117.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_oj1ei")
 theme_override_font_sizes/font_size = 100
 text = "HOW TO PLAY"
@@ -30,17 +93,21 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -379.0
-offset_top = 170.0
-offset_right = 383.0
-offset_bottom = 412.0
+offset_left = -376.0
+offset_top = 147.0
+offset_right = 386.0
+offset_bottom = 459.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_oj1ei")
 theme_override_font_sizes/font_size = 40
 text = "You and a friend are in control of a vessel on the open seas.
 Survive as long as you can in these treacherous waters! To do so,
 you will have to work together. You can only enter one input per 
 player, but both will control the ship's movement.
+Warning: Entering the same move on both inputs
+will make that input much faster!
 
 Player 1 Controls - WASD
 Player 2 Controls - Arrow Keys"
@@ -63,5 +130,62 @@ theme_override_fonts/font = ExtResource("1_oj1ei")
 theme_override_font_sizes/font_size = 60
 text = "RETURN TO MENU"
 script = ExtResource("2_hdjbp")
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -756.0
+offset_top = 422.0
+offset_right = 6.0
+offset_bottom = 664.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_oj1ei")
+theme_override_font_sizes/font_size = 40
+text = "Tempo Meter:
+Inputs will only be
+executed when the
+red circle is hit."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Label3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 357.0
+offset_top = 1.0
+offset_right = 1119.0
+offset_bottom = 243.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_oj1ei")
+theme_override_font_sizes/font_size = 40
+text = "Life Counter:
+Game over when
+you lose all
+3 lives"
+horizontal_alignment = 1
+
+[node name="Tempo_Meter" type="AnimatedSprite2D" parent="."]
+process_priority = -1
+z_index = 1
+texture_filter = 1
+position = Vector2(211, 402)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_l1paa")
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+process_priority = -1
+z_index = 1
+position = Vector2(938, 395)
+scale = Vector2(2, 2)
+texture = ExtResource("4_rxr8b")
+script = ExtResource("5_755rm")
 
 [connection signal="pressed" from="Return to menu" to="Return to menu" method="_on_pressed"]

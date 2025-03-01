@@ -1,24 +1,16 @@
 [gd_scene load_steps=9 format=3 uid="uid://daj5e13x7qxnt"]
 
-[ext_resource type="Texture2D" uid="uid://d4iyoyddrncql" path="res://Sprites/Animations/Water.png" id="1_jlbx5"]
+[ext_resource type="Shader" path="res://scroll.gdshader" id="1_buost"]
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="1_vv4nr"]
 [ext_resource type="Texture2D" uid="uid://dt2nq1bdr00uq" path="res://Sprites/SkinnyQueen.png" id="1_wrotb"]
+[ext_resource type="Texture2D" uid="uid://d21xwspif0jff" path="res://Sprites/sea1.png" id="2_lfll1"]
 [ext_resource type="Script" path="res://start_button.gd" id="2_ogbjm"]
-[ext_resource type="Theme" uid="uid://dygcq71aof11w" path="res://button_theme.tres" id="3_2vbyu"]
+[ext_resource type="Theme" uid="uid://ckgahekxkvqa6" path="res://button_theme.tres" id="3_2vbyu"]
 [ext_resource type="Script" path="res://how_to_play.gd" id="4_unw80"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l5x7c"]
-texture = ExtResource("1_jlbx5")
-texture_region_size = Vector2i(128, 128)
-0:0/animation_columns = 2
-0:0/animation_frame_0/duration = 1.0
-0:0/animation_frame_1/duration = 1.0
-0:0/animation_frame_2/duration = 1.0
-0:0/animation_frame_3/duration = 1.0
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_5thyj"]
-sources/0 = SubResource("TileSetAtlasSource_l5x7c")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvxff"]
+shader = ExtResource("1_buost")
+shader_parameter/speed = 0.1
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -28,11 +20,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Water" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_5thyj")
-rendering_quadrant_size = 128
-format = 2
-layer_0/tile_data = PackedInt32Array(196611, 0, 0, 196619, 0, 0, 196627, 0, 0, 196635, 0, 0, 196643, 0, 0, 196651, 0, 0, 196659, 0, 0, 196667, 0, 0, 196675, 0, 0, 720899, 0, 0, 720907, 0, 0, 720915, 0, 0, 720923, 0, 0, 720931, 0, 0, 720939, 0, 0, 720947, 0, 0, 720955, 0, 0, 720963, 0, 0, 1245251, 0, 0, 1245243, 0, 0, 1245235, 0, 0, 1245227, 0, 0, 1245219, 0, 0, 1245211, 0, 0, 1245203, 0, 0, 1245195, 0, 0, 1245187, 0, 0, 1769475, 0, 0, 1769483, 0, 0, 1769491, 0, 0, 1769499, 0, 0, 1769507, 0, 0, 1769515, 0, 0, 1769523, 0, 0, 1769531, 0, 0, 1769539, 0, 0, 1769547, 0, 0, 1245259, 0, 0, 720971, 0, 0, 196683, 0, 0, 2293763, 0, 0, 2293771, 0, 0, 2293779, 0, 0, 2293787, 0, 0, 2293795, 0, 0, 2293803, 0, 0, 2293811, 0, 0, 2293819, 0, 0, 2293827, 0, 0, 2293835, 0, 0, 2818123, 0, 0, 2818115, 0, 0, 2818107, 0, 0, 2818099, 0, 0, 2818091, 0, 0, 2818083, 0, 0, 2818075, 0, 0, 2818067, 0, 0, 2818059, 0, 0, 2818051, 0, 0)
+[node name="Water" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_hvxff")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -574.0
+offset_top = -240.0
+offset_right = 582.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lfll1")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 texture_filter = 1
@@ -42,6 +44,23 @@ offset_top = 340.0
 offset_right = 751.0
 offset_bottom = 541.0
 texture = ExtResource("1_wrotb")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 550.0
+offset_right = 929.0
+offset_bottom = 246.0
+texture = ExtResource("1_wrotb")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 217.0
+offset_right = 596.0
+offset_bottom = 246.0
+texture = ExtResource("1_wrotb")
+flip_h = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -62,6 +81,7 @@ offset_top = 94.0
 offset_right = 20.0
 offset_bottom = 117.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_vv4nr")
 theme_override_font_sizes/font_size = 100
 text = "DRUNKEN SAILORS"
@@ -96,6 +116,7 @@ layout_mode = 2
 
 [node name="How to Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_2vbyu")
 theme_override_fonts/font = ExtResource("1_vv4nr")
 theme_override_font_sizes/font_size = 50
 text = "HOW TO PLAY"

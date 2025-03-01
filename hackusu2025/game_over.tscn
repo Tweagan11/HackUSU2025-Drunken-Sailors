@@ -1,11 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmv3e7oalxp65"]
+[gd_scene load_steps=12 format=3 uid="uid://dmv3e7oalxp65"]
 
+[ext_resource type="Shader" path="res://scroll.gdshader" id="1_2e3ns"]
 [ext_resource type="Texture2D" uid="uid://dt2nq1bdr00uq" path="res://Sprites/SkinnyQueen.png" id="1_axvlw"]
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="1_c1wgr"]
 [ext_resource type="Script" path="res://start_button.gd" id="2_3w3pv"]
+[ext_resource type="Texture2D" uid="uid://d21xwspif0jff" path="res://Sprites/sea1.png" id="2_qoxar"]
 [ext_resource type="Script" path="res://final_score.gd" id="3_0fff5"]
 [ext_resource type="Script" path="res://main_menu_button.gd" id="3_6edg3"]
 [ext_resource type="StyleBox" path="res://button_style.tres" id="3_20vor"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hyg0l"]
+shader = ExtResource("1_2e3ns")
+shader_parameter/speed = 0.1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3yvna"]
 texture = ExtResource("1_axvlw")
@@ -33,6 +39,39 @@ anchor_right = 0.5
 offset_top = 243.0
 offset_bottom = 243.0
 grow_horizontal = 2
+
+[node name="Water" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_hyg0l")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -574.0
+offset_top = -240.0
+offset_right = 582.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qoxar")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -30.0
+offset_top = -200.0
+offset_right = 349.0
+offset_bottom = 46.0
+texture = ExtResource("1_axvlw")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -349.0
+offset_top = -200.0
+offset_right = 30.0
+offset_bottom = 46.0
+texture = ExtResource("1_axvlw")
+flip_h = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -62,6 +101,8 @@ offset_left = -77.0
 offset_top = 43.0
 offset_right = 39.0
 offset_bottom = 84.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_c1wgr")
 theme_override_font_sizes/font_size = 50
 text = "SCORE: "
@@ -73,12 +114,13 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -206.0
-offset_top = -113.0
-offset_right = 207.0
-offset_bottom = -18.0
+offset_left = -198.0
+offset_top = -105.0
+offset_right = 215.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_c1wgr")
 theme_override_font_sizes/font_size = 120
 text = "GAME OVER"
