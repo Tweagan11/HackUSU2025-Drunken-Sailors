@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://daj5e13x7qxnt"]
+[gd_scene load_steps=8 format=3 uid="uid://daj5e13x7qxnt"]
 
+[ext_resource type="Script" path="res://main_menu.gd" id="1_pjxxr"]
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="1_vv4nr"]
 [ext_resource type="Texture2D" uid="uid://dt2nq1bdr00uq" path="res://Sprites/SkinnyQueen.png" id="1_wrotb"]
 [ext_resource type="Script" path="res://start_button.gd" id="2_ogbjm"]
-[ext_resource type="Theme" uid="uid://ckgahekxkvqa6" path="res://button_theme.tres" id="3_2vbyu"]
+[ext_resource type="Theme" path="res://button_theme.tres" id="3_2vbyu"]
 [ext_resource type="Script" path="res://how_to_play.gd" id="4_unw80"]
+[ext_resource type="AudioStream" uid="uid://crhvptn33hy4t" path="res://Sprites/ocean-sound-of-the-waves_120bpm_D_minor.wav" id="6_4qa3x"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -13,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pjxxr")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 texture_filter = 1
@@ -81,6 +84,11 @@ theme_override_font_sizes/font_size = 50
 text = "HOW TO PLAY"
 flat = true
 script = ExtResource("4_unw80")
+
+[node name="water_sounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_4qa3x")
+volume_db = -1.633
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Start Game" to="VBoxContainer/Start Game" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/How to Play" to="VBoxContainer/How to Play" method="_on_pressed"]

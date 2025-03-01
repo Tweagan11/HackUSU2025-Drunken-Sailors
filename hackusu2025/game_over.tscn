@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmv3e7oalxp65"]
+[gd_scene load_steps=9 format=3 uid="uid://br8ff6hh0vn5h"]
 
 [ext_resource type="Texture2D" uid="uid://dt2nq1bdr00uq" path="res://Sprites/SkinnyQueen.png" id="1_axvlw"]
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="1_c1wgr"]
 [ext_resource type="Script" path="res://start_button.gd" id="2_3w3pv"]
 [ext_resource type="Script" path="res://final_score.gd" id="3_0fff5"]
 [ext_resource type="Script" path="res://main_menu_button.gd" id="3_6edg3"]
-[ext_resource type="StyleBox" path="res://button_style.tres" id="3_20vor"]
+[ext_resource type="StyleBox" uid="uid://b0o4r2gukyf6a" path="res://button_style.tres" id="3_20vor"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3yvna"]
 texture = ExtResource("1_axvlw")
