@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpgthkhorl37h"]
+[gd_scene load_steps=4 format=3 uid="uid://dpgthkhorl37h"]
 
 [ext_resource type="Texture2D" uid="uid://cuokto4jlghbm" path="res://icon.svg" id="1_av48u"]
+[ext_resource type="Script" path="res://rock.gd" id="1_oou1s"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5cbk"]
-radius = 66.0
-height = 140.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_m0dta"]
+radius = 65.2763
 
 [node name="Rock" type="Node2D"]
+script = ExtResource("1_oou1s")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -14,5 +15,10 @@ height = 140.0
 texture = ExtResource("1_av48u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 0)
-shape = SubResource("CapsuleShape2D_n5cbk")
+shape = SubResource("CircleShape2D_m0dta")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D"]
+position = Vector2(0.49999, 0.499996)
+scale = Vector2(6.35, 6.45)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
