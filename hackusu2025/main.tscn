@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhueqp7hbvjsh"]
+[gd_scene load_steps=8 format=3 uid="uid://dhueqp7hbvjsh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_eq4gh"]
 [ext_resource type="PackedScene" uid="uid://dpgthkhorl37h" path="res://rock.tscn" id="2_08gi6"]
-[ext_resource type="PackedScene" uid="uid://1u2wefup3kex" path="res://ship.tscn" id="3_qcjdh"]
+[ext_resource type="PackedScene" uid="uid://1u2wefup3kex" path="res://ship.tscn" id="3_nqarc"]
 [ext_resource type="Script" path="res://ui_manager.gd" id="4_qh1ot"]
+[ext_resource type="Script" path="res://score_timer.gd" id="5_4i5in"]
+[ext_resource type="Script" path="res://label.gd" id="6_aqu8i"]
+[ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="6_w4tdj"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_eq4gh")
 rock_scene = ExtResource("2_08gi6")
 
-[node name="Ship" parent="." instance=ExtResource("3_qcjdh")]
+[node name="Ship" parent="." instance=ExtResource("3_nqarc")]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -109,5 +112,40 @@ layout_mode = 2
 toggle_mode = true
 text = "→"
 
+[node name="Label" type="Label" parent="UI_Manager"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -80.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_w4tdj")
+theme_override_font_sizes/font_size = 100
+script = ExtResource("6_aqu8i")
+
+[node name="Score_Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+script = ExtResource("5_4i5in")
+
+<<<<<<< Updated upstream
+[node name="Label" type="Label" parent="."]
+offset_left = 571.0
+offset_top = 568.0
+offset_right = 611.0
+offset_bottom = 591.0
+script = ExtResource("6_aqu8i")
+
+<<<<<<< Updated upstream
+=======
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+>>>>>>> Stashed changes
 [connection signal="timeout" from="Timer" to="Ship" method="_on_timer_timeout"]
+=======
+>>>>>>> Stashed changes
+[connection signal="timeout" from="Score_Timer" to="Score_Timer" method="_on_timeout"]
