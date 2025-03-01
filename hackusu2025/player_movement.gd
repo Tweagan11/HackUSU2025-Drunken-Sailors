@@ -1,11 +1,14 @@
 class_name PlayerMovement extends CharacterBody2D
-signal hit
+signal death
 
 var speed = 3000.0
 @onready var direction = Vector2.ZERO
 @onready var timer: Timer = $"../Timer"
 @onready var ui_manager: Control = $"../UI_Manager"
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var hf_anim: AnimationPlayer = $AnimationPlayer
+
+var ROCK_SIZE = 50
 
 var p1_move = Vector2.ZERO
 var p2_move = Vector2.ZERO
@@ -57,4 +60,37 @@ func move(delta):
 
 func _on_timer_timeout() -> void:
 	move(global_delta)
+
+func bounce_ship(body):
+	if (abs(velocity.x) == 1 || velocity.y == 1):
+		if (abs(velocity.x) == 1):
+			velocity.y = velocity.x
+			velocity = velocity.normalized()
+			move_and_slide()
+			
+		else:
+			velocity.x == velocity.y
+			velocity = velocity.normalized()
+			move_and_slide()
+		return
 	
+	# Check if Ship is Lower or Higher Than Rock
+	if (abs(body.position.y - position.y) < ROCK_SIZE):
+		velocity.y *= -1
+		move_and_slide()
+		
+	# Else Ship is Left or Right of the Rock
+	else:
+		velocity.y *= -1
+		move_and_slide()
+
+
+func _on_hit_detector_body_entered(body: Node2D) -> void:
+	$HealthManager.hp -= 1
+	bounce_ship(body)
+	hf_anim.play("hit_flash")
+	if ($HealthManager.hp <= 0):
+		death.emit()
+
+func _on_death() -> void:
+	queue_free() 
