@@ -65,11 +65,15 @@ rock_scene5 = ExtResource("6_g6cxs")
 rock_scene6 = ExtResource("7_hrk1a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+process_priority = -1
+z_index = 1
 position = Vector2(114, 50)
 scale = Vector2(2, 2)
 texture = ExtResource("8_xgtbm")
 
 [node name="Tempo_Meter" type="AnimatedSprite2D" parent="."]
+process_priority = -1
+z_index = 1
 texture_filter = 1
 position = Vector2(1063, 55)
 scale = Vector2(2, 2)
@@ -78,6 +82,8 @@ autoplay = "default"
 frame_progress = 0.138856
 
 [node name="Ship" parent="." instance=ExtResource("3_nqarc")]
+process_priority = -1
+z_index = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.105
@@ -109,6 +115,7 @@ columns = 3
 layout_mode = 2
 
 [node name="W" type="Button" parent="UI_Manager/P1_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -120,6 +127,7 @@ text = "W"
 layout_mode = 2
 
 [node name="A" type="Button" parent="UI_Manager/P1_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -128,6 +136,7 @@ toggle_mode = true
 text = "A"
 
 [node name="S" type="Button" parent="UI_Manager/P1_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -136,6 +145,7 @@ toggle_mode = true
 text = "S"
 
 [node name="D" type="Button" parent="UI_Manager/P1_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -159,6 +169,7 @@ columns = 3
 layout_mode = 2
 
 [node name="Up" type="Button" parent="UI_Manager/P2_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -170,6 +181,7 @@ text = "↑"
 layout_mode = 2
 
 [node name="Left" type="Button" parent="UI_Manager/P2_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -178,6 +190,7 @@ toggle_mode = true
 text = "←"
 
 [node name="Down" type="Button" parent="UI_Manager/P2_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -186,6 +199,7 @@ toggle_mode = true
 text = "↓"
 
 [node name="Right" type="Button" parent="UI_Manager/P2_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
