@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0ikcwuoemqlf"]
+[gd_scene load_steps=7 format=3 uid="uid://crb3c0haniqbg"]
 
 [ext_resource type="Script" path="res://player_movement.gd" id="1_xa152"]
 [ext_resource type="Texture2D" uid="uid://vxx6523pjb0y" path="res://Sprites/Ship.png" id="2_gntic"]
-[ext_resource type="Script" path="res://sprite_2d.gd" id="3_dqsam"]
-[ext_resource type="PackedScene" path="res://health_manager.tscn" id="4_rsndj"]
+[ext_resource type="PackedScene" uid="uid://b2bmb5ryw0pt6" path="res://health_manager.tscn" id="4_rsndj"]
 [ext_resource type="Script" path="res://hit_detector.gd" id="5_cfr6x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3n5qm"]
@@ -16,6 +15,7 @@ height = 160.0
 
 [node name="Ship" type="CharacterBody2D"]
 position = Vector2(582, 331)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_xa152")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -27,7 +27,6 @@ texture_filter = 1
 position = Vector2(-8.58307e-06, 9.53674e-07)
 scale = Vector2(3.70455, 3.70454)
 texture = ExtResource("2_gntic")
-script = ExtResource("3_dqsam")
 
 [node name="HealthManager" parent="." instance=ExtResource("4_rsndj")]
 
@@ -41,3 +40,6 @@ light_mask = 2
 visibility_layer = 2
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_dqht8")
+
+[connection signal="area_entered" from="HitDetector" to="." method="_on_hit_detector_area_entered"]
+[connection signal="body_entered" from="HitDetector" to="." method="_on_hit_detector_body_entered"]

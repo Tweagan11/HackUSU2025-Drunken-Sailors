@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3ygwatbyxchn"]
+
+[ext_resource type="Script" path="res://rock.gd" id="1_p3x3d"]
+[ext_resource type="Texture2D" uid="uid://bp1ouvnuxfacu" path="res://Sprites/Rock2.png" id="2_5pfpu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3e3t2"]
+radius = 46.0
+height = 168.0
+
+[node name="Rock" type="Node2D"]
+scale = Vector2(0.45, 0.45)
+script = ExtResource("1_p3x3d")
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(-20, 2)
+scale = Vector2(6, 6)
+texture = ExtResource("2_5pfpu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3e3t2")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(0.49999, 0.499996)
+scale = Vector2(11.85, 6.45)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
