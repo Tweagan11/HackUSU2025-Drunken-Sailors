@@ -88,13 +88,14 @@ func bounce_ship(body):
 
 
 func _on_hit_detector_body_entered(body: Node2D) -> void:
-	hit.emit()
-	$HealthManager.hp -= 1
-	bounce_ship(body)
-	hf_anim.play("hit_flash")
-	if ($HealthManager.hp <= 0):
-		print("emitting death!")
-		death.emit()
+	if body.get_collision_layer() == 1:
+		hit.emit()
+		$HealthManager.hp -= 1
+		bounce_ship(body)
+		hf_anim.play("hit_flash")
+		if ($HealthManager.hp <= 0):
+			print("emitting death!")
+			death.emit()
 
 func _on_death() -> void:
 	#Shake Screen
