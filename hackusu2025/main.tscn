@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhueqp7hbvjsh"]
+[gd_scene load_steps=9 format=3 uid="uid://dhueqp7hbvjsh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_eq4gh"]
 [ext_resource type="Texture2D" uid="uid://cuokto4jlghbm" path="res://icon.svg" id="1_jh44u"]
@@ -14,6 +14,12 @@ size = Vector2(117, 116)
 [node name="Main" type="Node"]
 script = ExtResource("1_eq4gh")
 rock_scene = ExtResource("2_08gi6")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 
 [node name="Ship" type="CharacterBody2D" parent="."]
 position = Vector2(582, 331)
@@ -33,10 +39,6 @@ script = ExtResource("3_nse5v")
 wait_time = 2.0
 autostart = true
 
-<<<<<<< HEAD
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]
-=======
 [node name="UI_Manager" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -132,4 +134,3 @@ toggle_mode = true
 text = "→"
 
 [connection signal="timeout" from="Timer" to="Ship" method="_on_timer_timeout"]
->>>>>>> 08e41b0890a9a855fe6cca5170c97d57803c9077
