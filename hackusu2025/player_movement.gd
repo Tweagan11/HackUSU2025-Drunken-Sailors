@@ -14,6 +14,9 @@ func _physics_process(delta):
 	global_delta = delta
 	set_move()
 	move_and_slide()
+	#var collision = move_and_collide(velocity)
+	#if collision:
+		#velocity = velocity.bounce(collision.get_normal())
 
 func set_move():
 	if(Input.is_action_pressed("p1_down")):
@@ -38,14 +41,13 @@ func set_move():
 
 func move(delta):
 	if p1_move == p2_move:
-		p1_move *= 3
+		p1_move *= 2
 	direction = p1_move + p2_move
 	velocity.x = direction.x * speed * delta
 	velocity.y = direction.y * speed * delta
 	p1_move = Vector2.ZERO
 	p2_move = Vector2.ZERO
 	ui_manager.reset_buttons()
-
 
 func _on_timer_timeout() -> void:
 	move(global_delta)

@@ -20,13 +20,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	
-	# Check if Ship is Lower or Higher Than Rock
-	if (abs(position.y - body.position.y) < ROCK_SIZE):
-		body.velocity.y *= -1
-		
-	# Else Ship is Left or Right of the Rock
-	else:
-		body.velocity.x *= -1
+#func _on_area_2d_body_entered(body: Node2D) -> void:
+	#body.velocity = body.velocity.bounce()
 	
