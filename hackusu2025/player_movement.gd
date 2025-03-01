@@ -1,5 +1,6 @@
 class_name PlayerMovement extends CharacterBody2D
 signal death
+signal hit
 
 var speed = 3000.0
 @onready var direction = Vector2.ZERO
@@ -86,11 +87,21 @@ func bounce_ship(body):
 
 
 func _on_hit_detector_body_entered(body: Node2D) -> void:
+	hit.emit()
 	$HealthManager.hp -= 1
 	bounce_ship(body)
 	hf_anim.play("hit_flash")
 	if ($HealthManager.hp <= 0):
+		print("emitting death!")
 		death.emit()
 
 func _on_death() -> void:
-	queue_free() 
+	#Shake Screen
+	print("death emitted!")
+	hf_anim.play("hit_flash")
+	hf_anim.play("hit_flash")
+	hf_anim.play("hit_flash")
+	await get_tree().create_timer(2.0).timeout
+	velocity.x *= .1
+	velocity.y *= .1
+	GameManager.load_scene("res://game_over.tscn")
