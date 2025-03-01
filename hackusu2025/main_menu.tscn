@@ -345,6 +345,7 @@ layout_mode = 2
 
 [node name="How to Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_2vbyu")
 theme_override_fonts/font = ExtResource("1_vv4nr")
 theme_override_font_sizes/font_size = 50
 text = "HOW TO PLAY"
