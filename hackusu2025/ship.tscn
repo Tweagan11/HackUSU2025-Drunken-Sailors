@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://1u2wefup3kex"]
+[gd_scene load_steps=8 format=3 uid="uid://d0ikcwuoemqlf"]
 
 [ext_resource type="Script" path="res://player_movement.gd" id="1_xa152"]
-[ext_resource type="Texture2D" uid="uid://bu7cl70kjffge" path="res://Sprites/Ship.png" id="2_gntic"]
+[ext_resource type="Texture2D" uid="uid://vxx6523pjb0y" path="res://Sprites/Ship.png" id="2_gntic"]
 [ext_resource type="Script" path="res://sprite_2d.gd" id="3_dqsam"]
-[ext_resource type="PackedScene" uid="uid://b2bmb5ryw0pt6" path="res://health_manager.tscn" id="4_rsndj"]
+[ext_resource type="PackedScene" path="res://health_manager.tscn" id="4_rsndj"]
 [ext_resource type="Script" path="res://hit_detector.gd" id="5_cfr6x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3n5qm"]
