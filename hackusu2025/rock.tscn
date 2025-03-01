@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpgthkhorl37h"]
+
+[ext_resource type="Texture2D" uid="uid://cuokto4jlghbm" path="res://icon.svg" id="1_av48u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5cbk"]
+radius = 66.0
+height = 140.0
+
+[node name="Rock" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_av48u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_n5cbk")
