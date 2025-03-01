@@ -21,5 +21,27 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 #func _on_area_2d_body_entered(body: Node2D) -> void:
-	#body.velocity = body.velocity.bounce()
 	
+	
+	
+	#if (abs(body.velocity.x) == 1 || body.velocity.y == 1):
+		#if (abs(body.velocity.x) == 1):
+			#body.velocity.y == body.velocity.x
+			#body.velocity = body.velocity.normalize()
+			#body.move_and_slide()
+			#
+		#else:
+			#body.velocity.x == body.velocity.y
+			#body.velocity = body.velocity.normalize()
+			#body.move_and_slide()
+		#return
+	#
+	## Check if Ship is Lower or Higher Than Rock
+	#if (abs(position.y - body.position.y) < ROCK_SIZE):
+		#body.velocity.x *= -1
+		#body.move_and_slide()
+		#
+	## Else Ship is Left or Right of the Rock
+	#else:
+		#body.velocity. *= -1
+		#body.move_and_slide()

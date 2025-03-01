@@ -10,6 +10,7 @@ radius = 65.2763
 script = ExtResource("1_oou1s")
 
 [node name="Area2D" type="Area2D" parent="."]
+z_index = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("1_av48u")

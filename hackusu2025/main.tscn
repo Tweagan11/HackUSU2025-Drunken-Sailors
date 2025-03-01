@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_eq4gh"]
 [ext_resource type="PackedScene" uid="uid://dpgthkhorl37h" path="res://rock.tscn" id="2_08gi6"]
-[ext_resource type="PackedScene" uid="uid://2hmsud0q5k2k" path="res://ship.tscn" id="3_nqarc"]
+[ext_resource type="PackedScene" uid="uid://1u2wefup3kex" path="res://ship.tscn" id="3_qcjdh"]
 [ext_resource type="Script" path="res://ui_manager.gd" id="4_qh1ot"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_eq4gh")
 rock_scene = ExtResource("2_08gi6")
 
-[node name="Ship" parent="." instance=ExtResource("3_nqarc")]
+[node name="Ship" parent="." instance=ExtResource("3_qcjdh")]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -109,4 +109,5 @@ layout_mode = 2
 toggle_mode = true
 text = "→"
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Ship" method="_on_timer_timeout"]
