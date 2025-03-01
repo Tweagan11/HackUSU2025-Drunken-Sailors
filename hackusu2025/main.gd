@@ -26,3 +26,8 @@ func spawn_rock() :
 
 func _on_timer_timeout() -> void:
 	spawn_rock() # Replace with function body.
+
+
+
+func _on_ship_death() -> void:
+	audio_stream_player_2d.stop()
