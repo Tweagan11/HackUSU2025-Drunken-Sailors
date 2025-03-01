@@ -90,6 +90,21 @@ shader_parameter/ColorParameter = Color(1, 1, 1, 1)
 radius = 39.0
 height = 160.0
 
+[sub_resource type="Animation" id="Animation_tua5m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_qle0o"]
 resource_name = "hit_flash"
 length = 0.2
@@ -104,21 +119,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_tua5m"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhqp8"]
@@ -151,6 +151,7 @@ scale = Vector2(3.70455, 3.70454)
 texture = ExtResource("2_gntic")
 
 [node name="HealthManager" parent="." instance=ExtResource("4_rsndj")]
+hp = 4
 
 [node name="HitDetector" type="Area2D" parent="."]
 light_mask = 2
