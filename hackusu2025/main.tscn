@@ -110,6 +110,8 @@ layout_mode = 2
 [node name="W" type="Button" parent="UI_Manager/P1_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "W"
 
@@ -119,18 +121,24 @@ layout_mode = 2
 [node name="A" type="Button" parent="UI_Manager/P1_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "A"
 
 [node name="S" type="Button" parent="UI_Manager/P1_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "S"
 
 [node name="D" type="Button" parent="UI_Manager/P1_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "D"
 
@@ -152,6 +160,8 @@ layout_mode = 2
 [node name="Up" type="Button" parent="UI_Manager/P2_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "↑"
 
@@ -161,18 +171,24 @@ layout_mode = 2
 [node name="Left" type="Button" parent="UI_Manager/P2_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "←"
 
 [node name="Down" type="Button" parent="UI_Manager/P2_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "↓"
 
 [node name="Right" type="Button" parent="UI_Manager/P2_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "→"
 
