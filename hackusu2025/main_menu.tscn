@@ -279,9 +279,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Water" type="TileMap" parent="."]
+[node name="Layer0" type="TileMapLayer" parent="."]
+use_parent_material = true
 tile_set = SubResource("TileSet_8b6jt")
-format = 2
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 texture_filter = 1
@@ -345,7 +345,6 @@ layout_mode = 2
 
 [node name="How to Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_2vbyu")
 theme_override_fonts/font = ExtResource("1_vv4nr")
 theme_override_font_sizes/font_size = 50
 text = "HOW TO PLAY"

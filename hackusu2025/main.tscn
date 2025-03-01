@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dhueqp7hbvjsh"]
+[gd_scene load_steps=24 format=3 uid="uid://dhueqp7hbvjsh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_eq4gh"]
 [ext_resource type="PackedScene" uid="uid://dpgthkhorl37h" path="res://rock.tscn" id="2_08gi6"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cddkeqoi1ukv5" path="res://rock_6.tscn" id="7_hrk1a"]
 [ext_resource type="AudioStream" uid="uid://3ujd2uvs1uw4" path="res://pirate_song.wav" id="8_hs8p7"]
 [ext_resource type="Texture2D" uid="uid://07fgyw2a52lo" path="res://Sprites/3_hearts.png" id="8_xgtbm"]
+[ext_resource type="Script" path="res://hearts.gd" id="9_ltv6f"]
 [ext_resource type="Theme" uid="uid://ckgahekxkvqa6" path="res://button_theme.tres" id="12_siimd"]
 [ext_resource type="Texture2D" uid="uid://dql1o0lfvix6a" path="res://Sprites/pirate_tempo.png" id="12_x03nu"]
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="13_14br3"]
@@ -69,6 +70,7 @@ z_index = 1
 position = Vector2(114, 50)
 scale = Vector2(2, 2)
 texture = ExtResource("8_xgtbm")
+script = ExtResource("9_ltv6f")
 
 [node name="Tempo_Meter" type="AnimatedSprite2D" parent="."]
 process_priority = -1
@@ -237,6 +239,7 @@ stream = ExtResource("8_hs8p7")
 script = ExtResource("17_sba7k")
 
 [connection signal="death" from="Ship" to="." method="_on_ship_death"]
+[connection signal="hit" from="Ship" to="Sprite2D" method="_on_ship_hit"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Ship" method="_on_timer_timeout"]
 [connection signal="timeout" from="Score_Timer" to="Score_Timer" method="_on_timeout"]
