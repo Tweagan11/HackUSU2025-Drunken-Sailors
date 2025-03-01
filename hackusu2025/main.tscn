@@ -1,39 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhueqp7hbvjsh"]
+[gd_scene load_steps=5 format=3 uid="uid://dhueqp7hbvjsh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_eq4gh"]
-[ext_resource type="Texture2D" uid="uid://cuokto4jlghbm" path="res://icon.svg" id="1_jh44u"]
-[ext_resource type="Script" path="res://player_movement.gd" id="1_s6grh"]
 [ext_resource type="PackedScene" uid="uid://dpgthkhorl37h" path="res://rock.tscn" id="2_08gi6"]
-[ext_resource type="Script" path="res://sprite_2d.gd" id="3_nse5v"]
+[ext_resource type="PackedScene" uid="uid://2hmsud0q5k2k" path="res://ship.tscn" id="3_nqarc"]
 [ext_resource type="Script" path="res://ui_manager.gd" id="4_qh1ot"]
-[ext_resource type="PackedScene" uid="uid://b2bmb5ryw0pt6" path="res://health_manager.tscn" id="4_vrt68"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqevw"]
-size = Vector2(117, 116)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_eq4gh")
 rock_scene = ExtResource("2_08gi6")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-
-[node name="Ship" type="CharacterBody2D" parent="."]
-position = Vector2(582, 331)
-script = ExtResource("1_s6grh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship"]
-position = Vector2(-0.5, 1)
-shape = SubResource("RectangleShape2D_eqevw")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ship"]
-texture = ExtResource("1_jh44u")
-script = ExtResource("3_nse5v")
-
-[node name="HealthManager" parent="Ship" instance=ExtResource("4_vrt68")]
+[node name="Ship" parent="." instance=ExtResource("3_nqarc")]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -132,5 +108,3 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 toggle_mode = true
 text = "→"
-
-[connection signal="timeout" from="Timer" to="Ship" method="_on_timer_timeout"]
