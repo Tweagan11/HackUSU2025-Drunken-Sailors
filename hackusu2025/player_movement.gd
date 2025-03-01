@@ -3,6 +3,7 @@ class_name PlayerMovement extends CharacterBody2D
 var speed = 3000.0
 @onready var direction = Vector2.ZERO
 @onready var timer: Timer = $"../Timer"
+@onready var ui_manager: Control = $"../UI_Manager"
 
 var p1_move = Vector2.ZERO
 var p2_move = Vector2.ZERO
@@ -13,8 +14,6 @@ func _physics_process(delta):
 	global_delta = delta
 	set_move()
 	move_and_slide()
-
-
 
 func set_move():
 	if(Input.is_action_pressed("p1_down")):
@@ -35,6 +34,7 @@ func set_move():
 	elif(Input.is_action_pressed("p2_right")):
 		p2_move = Vector2(1, 0)
 	
+	ui_manager.set_buttons(p1_move.normalized(), p2_move.normalized())
 
 func move(delta):
 	if p1_move == p2_move:
@@ -42,8 +42,10 @@ func move(delta):
 	direction = p1_move + p2_move
 	velocity.x = direction.x * speed * delta
 	velocity.y = direction.y * speed * delta
+	p1_move = Vector2.ZERO
+	p2_move = Vector2.ZERO
+	ui_manager.reset_buttons()
 
 
 func _on_timer_timeout() -> void:
-	print("timeout")
 	move(global_delta)
