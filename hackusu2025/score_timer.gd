@@ -13,4 +13,3 @@ func _process(delta: float) -> void:
 
 func _on_timeout() -> void:
 	GameManager.score += 1
-	print(GameManager.score)
