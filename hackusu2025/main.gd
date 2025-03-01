@@ -13,6 +13,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func hit(damage):
+	pass
+
 func spawn_rock() :
 	var rock = rock_scene.instantiate()
 	add_child(rock)
