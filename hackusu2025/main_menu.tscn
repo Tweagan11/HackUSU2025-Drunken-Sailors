@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="1_vv4nr"]
 [ext_resource type="Texture2D" uid="uid://dt2nq1bdr00uq" path="res://Sprites/SkinnyQueen.png" id="1_wrotb"]
 [ext_resource type="Script" path="res://start_button.gd" id="2_ogbjm"]
-[ext_resource type="Theme" path="res://button_theme.tres" id="3_2vbyu"]
+[ext_resource type="Theme" uid="uid://ckgahekxkvqa6" path="res://button_theme.tres" id="3_2vbyu"]
 [ext_resource type="Script" path="res://how_to_play.gd" id="4_unw80"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qph15"]
