@@ -133,19 +133,6 @@ wait_time = 0.05
 autostart = true
 script = ExtResource("5_4i5in")
 
-<<<<<<< Updated upstream
-[node name="Label" type="Label" parent="."]
-offset_left = 571.0
-offset_top = 568.0
-offset_right = 611.0
-offset_bottom = 591.0
-script = ExtResource("6_aqu8i")
-
-<<<<<<< Updated upstream
-=======
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
->>>>>>> Stashed changes
 [connection signal="timeout" from="Timer" to="Ship" method="_on_timer_timeout"]
-=======
->>>>>>> Stashed changes
 [connection signal="timeout" from="Score_Timer" to="Score_Timer" method="_on_timeout"]
