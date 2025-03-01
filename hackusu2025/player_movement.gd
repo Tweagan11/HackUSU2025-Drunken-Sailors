@@ -42,8 +42,8 @@ func move(delta):
 	direction = p1_move + p2_move
 	velocity.x = direction.x * speed * delta
 	velocity.y = direction.y * speed * delta
-	p1_move = Vector2.ZERO
-	p2_move = Vector2.ZERO
+	p1_move = p1_move.normalized()
+	p2_move = p2_move.normalized()
 	ui_manager.reset_buttons()
 
 func _on_timer_timeout() -> void:

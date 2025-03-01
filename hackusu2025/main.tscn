@@ -108,3 +108,5 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 toggle_mode = true
 text = "→"
+
+[connection signal="timeout" from="Timer" to="Ship" method="_on_timer_timeout"]
