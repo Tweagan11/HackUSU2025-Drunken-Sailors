@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://daj5e13x7qxnt"]
+[gd_scene load_steps=5 format=3 uid="uid://daj5e13x7qxnt"]
 
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="1_vv4nr"]
 [ext_resource type="Texture2D" uid="uid://dt2nq1bdr00uq" path="res://Sprites/SkinnyQueen.png" id="1_wrotb"]
 [ext_resource type="Script" path="res://start_button.gd" id="2_ogbjm"]
+[ext_resource type="Script" path="res://how_to_play.gd" id="4_unw80"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -77,5 +78,7 @@ theme_override_fonts/font = ExtResource("1_vv4nr")
 theme_override_font_sizes/font_size = 50
 text = "HOW TO PLAY"
 flat = true
+script = ExtResource("4_unw80")
 
 [connection signal="pressed" from="VBoxContainer/Start Game" to="VBoxContainer/Start Game" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/How to Play" to="VBoxContainer/How to Play" method="_on_pressed"]

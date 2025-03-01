@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cswggr43xvls5"]
+[gd_scene load_steps=3 format=3 uid="uid://cswggr43xvls5"]
 
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="1_oj1ei"]
+[ext_resource type="Script" path="res://return_to_menu.gd" id="2_hdjbp"]
 
 [node name="How to Play" type="Control"]
 layout_mode = 3
@@ -15,9 +16,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -201.0
+offset_top = 56.0
+offset_right = 205.0
+offset_bottom = 136.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_oj1ei")
 theme_override_font_sizes/font_size = 100
@@ -28,10 +30,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -203.0
-offset_top = 114.0
-offset_right = 203.0
-offset_bottom = 194.0
+offset_left = -379.0
+offset_top = 170.0
+offset_right = 383.0
+offset_bottom = 412.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_oj1ei")
 theme_override_font_sizes/font_size = 40
@@ -43,3 +45,23 @@ player, but both will control the ship's movement.
 Player 1 Controls - WASD
 Player 2 Controls - Arrow Keys"
 horizontal_alignment = 1
+
+[node name="Return to menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -157.0
+offset_right = 162.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_oj1ei")
+theme_override_font_sizes/font_size = 60
+text = "RETURN TO MENU"
+script = ExtResource("2_hdjbp")
+
+[connection signal="pressed" from="Return to menu" to="Return to menu" method="_on_pressed"]
