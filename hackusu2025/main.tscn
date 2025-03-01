@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cddkeqoi1ukv5" path="res://rock_6.tscn" id="7_hrk1a"]
 [ext_resource type="AudioStream" uid="uid://3ujd2uvs1uw4" path="res://pirate_song.wav" id="8_hs8p7"]
 [ext_resource type="Texture2D" uid="uid://07fgyw2a52lo" path="res://Sprites/3_hearts.png" id="8_xgtbm"]
-[ext_resource type="Theme" path="res://button_theme.tres" id="12_siimd"]
+[ext_resource type="Theme" uid="uid://ckgahekxkvqa6" path="res://button_theme.tres" id="12_siimd"]
 [ext_resource type="Texture2D" uid="uid://dql1o0lfvix6a" path="res://Sprites/pirate_tempo.png" id="12_x03nu"]
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="13_14br3"]
 [ext_resource type="Script" path="res://label.gd" id="14_be05f"]
