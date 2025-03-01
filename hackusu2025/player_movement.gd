@@ -8,6 +8,7 @@ var speed = 3000.0
 @onready var ui_manager: Control = $"../UI_Manager"
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var hf_anim: AnimationPlayer = $AnimationPlayer
+@onready var score_timer: Timer = $"../Score_Timer"
 
 var ROCK_SIZE = 50
 
@@ -101,6 +102,7 @@ func _on_death() -> void:
 	hf_anim.play("hit_flash")
 	hf_anim.play("hit_flash")
 	hf_anim.play("hit_flash")
+	score_timer.stop()
 	await get_tree().create_timer(2.0).timeout
 	velocity.x *= .1
 	velocity.y *= .1
