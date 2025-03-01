@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhueqp7hbvjsh"]
+[gd_scene load_steps=22 format=3 uid="uid://dhueqp7hbvjsh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_eq4gh"]
 [ext_resource type="PackedScene" uid="uid://dpgthkhorl37h" path="res://rock.tscn" id="2_08gi6"]
@@ -11,6 +11,47 @@
 [ext_resource type="PackedScene" uid="uid://boji3orkcojk6" path="res://rock_5.tscn" id="6_g6cxs"]
 [ext_resource type="PackedScene" uid="uid://cddkeqoi1ukv5" path="res://rock_6.tscn" id="7_hrk1a"]
 [ext_resource type="AudioStream" uid="uid://3ujd2uvs1uw4" path="res://pirate_song.wav" id="8_hs8p7"]
+[ext_resource type="Texture2D" uid="uid://07fgyw2a52lo" path="res://Sprites/3_hearts.png" id="8_xgtbm"]
+[ext_resource type="Theme" uid="uid://ckgahekxkvqa6" path="res://button_theme.tres" id="12_siimd"]
+[ext_resource type="Texture2D" uid="uid://dql1o0lfvix6a" path="res://Sprites/pirate_tempo.png" id="12_x03nu"]
+[ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="13_14br3"]
+[ext_resource type="Script" path="res://label.gd" id="14_be05f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o1lw"]
+atlas = ExtResource("12_x03nu")
+region = Rect2(80, 80, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v5uk"]
+atlas = ExtResource("12_x03nu")
+region = Rect2(0, 0, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x1mt"]
+atlas = ExtResource("12_x03nu")
+region = Rect2(80, 0, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4kog"]
+atlas = ExtResource("12_x03nu")
+region = Rect2(0, 80, 80, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_di4ub"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o1lw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v5uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x1mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4kog")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.9
+}]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_eq4gh")
@@ -21,10 +62,23 @@ rock_scene4 = ExtResource("5_6iix7")
 rock_scene5 = ExtResource("6_g6cxs")
 rock_scene6 = ExtResource("7_hrk1a")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(114, 50)
+scale = Vector2(2, 2)
+texture = ExtResource("8_xgtbm")
+
+[node name="Tempo_Meter" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1063, 55)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_di4ub")
+autoplay = "default"
+frame_progress = 0.138856
+
 [node name="Ship" parent="." instance=ExtResource("3_nqarc")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 2.105
 autostart = true
 
 [node name="UI_Manager" type="Control" parent="."]
@@ -55,6 +109,8 @@ layout_mode = 2
 [node name="W" type="Button" parent="UI_Manager/P1_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "W"
 
@@ -64,18 +120,24 @@ layout_mode = 2
 [node name="A" type="Button" parent="UI_Manager/P1_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "A"
 
 [node name="S" type="Button" parent="UI_Manager/P1_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "S"
 
 [node name="D" type="Button" parent="UI_Manager/P1_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "D"
 
@@ -97,6 +159,8 @@ layout_mode = 2
 [node name="Up" type="Button" parent="UI_Manager/P2_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "↑"
 
@@ -106,20 +170,45 @@ layout_mode = 2
 [node name="Left" type="Button" parent="UI_Manager/P2_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "←"
 
 [node name="Down" type="Button" parent="UI_Manager/P2_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "↓"
 
 [node name="Right" type="Button" parent="UI_Manager/P2_UI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "→"
+
+[node name="Label" type="Label" parent="UI_Manager"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -84.0
+offset_right = 74.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("12_siimd")
+theme_override_fonts/font = ExtResource("13_14br3")
+theme_override_font_sizes/font_size = 50
+text = "SCORE: "
+script = ExtResource("14_be05f")
 
 [node name="Score_Timer" type="Timer" parent="."]
 wait_time = 0.05

@@ -8,6 +8,7 @@ radius = 65.2763
 
 [node name="Rock" type="CharacterBody2D"]
 scale = Vector2(0.45, 0.45)
+collision_layer = 2
 script = ExtResource("1_oou1s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

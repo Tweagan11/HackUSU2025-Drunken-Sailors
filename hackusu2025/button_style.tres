@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b0o4r2gukyf6a"]
+
+[ext_resource type="Texture2D" uid="uid://dt2nq1bdr00uq" path="res://Sprites/SkinnyQueen.png" id="1_tm6d1"]
+
+[resource]
+texture = ExtResource("1_tm6d1")
+texture_margin_top = 10.0
+texture_margin_right = 6.0
+texture_margin_bottom = 5.0
+expand_margin_top = 14.0
+expand_margin_right = 7.0
+expand_margin_bottom = 17.0
+modulate_color = Color(0.762404, 0.762404, 0.762404, 1)

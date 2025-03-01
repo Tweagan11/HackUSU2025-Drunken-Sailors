@@ -1,6 +1,6 @@
 extends Label
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _ready() -> void:
 	text = "SCORE: " + str(GameManager.score)
-	pass
+	GameManager.score = 0

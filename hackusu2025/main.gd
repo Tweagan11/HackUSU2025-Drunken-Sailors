@@ -26,6 +26,3 @@ func spawn_rock() :
 
 func _on_timer_timeout() -> void:
 	spawn_rock() # Replace with function body.
-
-func _on_ship_death() -> void:
-	queue_free() # Replace with function body.

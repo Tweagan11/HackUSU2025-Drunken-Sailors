@@ -1,4 +1,4 @@
-extends Timer
+extends Button
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,5 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_timeout() -> void:
-	GameManager.score += 1
+func _on_pressed() -> void:
+	GameManager.load_scene("res://main_menu.tscn")
