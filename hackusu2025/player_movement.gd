@@ -5,6 +5,7 @@ var speed = 3000.0
 @onready var direction = Vector2.ZERO
 @onready var timer: Timer = $"../Timer"
 @onready var ui_manager: Control = $"../UI_Manager"
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var p1_move = Vector2.ZERO
 var p2_move = Vector2.ZERO
@@ -15,6 +16,13 @@ func _physics_process(delta):
 	global_delta = delta
 	set_move()
 	move_and_slide()
+	update_sprite()
+	
+	position.x = wrapf(position.x, 0 - sprite_2d.texture.get_size().x / 2, get_viewport_rect().size.x + sprite_2d.texture.get_size().x / 2)
+	position.y = wrapf(position.y, 0 - sprite_2d.texture.get_size().y / 2, get_viewport_rect().size.y + sprite_2d.texture.get_size().y / 2)
+	
+func update_sprite():
+	look_at(global_position + direction.rotated(PI / 2))
 
 func set_move():
 	if(Input.is_action_pressed("p1_down")):

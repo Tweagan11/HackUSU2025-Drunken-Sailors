@@ -32,6 +32,7 @@ script = ExtResource("3_dqsam")
 [node name="HealthManager" parent="." instance=ExtResource("4_rsndj")]
 
 [node name="HitDetector" type="Area2D" parent="."]
+light_mask = 2
 script = ExtResource("5_cfr6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetector"]
@@ -40,5 +41,3 @@ light_mask = 2
 visibility_layer = 2
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_dqht8")
-
-[connection signal="body_entered" from="HitDetector" to="." method="_on_hit_detector_body_entered"]
