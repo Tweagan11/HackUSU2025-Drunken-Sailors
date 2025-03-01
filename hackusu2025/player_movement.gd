@@ -12,6 +12,8 @@ var speed = 3000.0
 
 var ROCK_SIZE = 50
 
+var hit_bool = false
+
 var p1_move = Vector2.ZERO
 var p2_move = Vector2.ZERO
 
@@ -88,7 +90,8 @@ func bounce_ship(body):
 
 
 func _on_hit_detector_body_entered(body: Node2D) -> void:
-	if body.get_collision_layer() == 1:
+	if body.name != "Ship" or hit_bool == false:
+		hit_bool = true
 		hit.emit()
 		$HealthManager.hp -= 1
 		bounce_ship(body)
