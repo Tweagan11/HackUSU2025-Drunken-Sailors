@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dhueqp7hbvjsh"]
+[gd_scene load_steps=23 format=3 uid="uid://dhueqp7hbvjsh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_eq4gh"]
 [ext_resource type="PackedScene" uid="uid://dpgthkhorl37h" path="res://rock.tscn" id="2_08gi6"]
@@ -11,25 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://boji3orkcojk6" path="res://rock_5.tscn" id="6_g6cxs"]
 [ext_resource type="PackedScene" uid="uid://cddkeqoi1ukv5" path="res://rock_6.tscn" id="7_hrk1a"]
 [ext_resource type="AudioStream" uid="uid://3ujd2uvs1uw4" path="res://pirate_song.wav" id="8_hs8p7"]
-[ext_resource type="Texture2D" uid="uid://d4iyoyddrncql" path="res://Sprites/Animations/Water.png" id="8_v4e3j"]
 [ext_resource type="Texture2D" uid="uid://07fgyw2a52lo" path="res://Sprites/3_hearts.png" id="8_xgtbm"]
-[ext_resource type="Theme" uid="uid://dygcq71aof11w" path="res://button_theme.tres" id="12_siimd"]
+[ext_resource type="Theme" uid="uid://ckgahekxkvqa6" path="res://button_theme.tres" id="12_siimd"]
 [ext_resource type="Texture2D" uid="uid://dql1o0lfvix6a" path="res://Sprites/pirate_tempo.png" id="12_x03nu"]
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="13_14br3"]
 [ext_resource type="Script" path="res://label.gd" id="14_be05f"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqhny"]
-texture = ExtResource("8_v4e3j")
-texture_region_size = Vector2i(128, 128)
-0:0/animation_columns = 2
-0:0/animation_frame_0/duration = 1.0
-0:0/animation_frame_1/duration = 1.0
-0:0/animation_frame_2/duration = 1.0
-0:0/animation_frame_3/duration = 1.0
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_4a45y"]
-sources/0 = SubResource("TileSetAtlasSource_qqhny")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6o1lw"]
 atlas = ExtResource("12_x03nu")
@@ -76,17 +62,16 @@ rock_scene4 = ExtResource("5_6iix7")
 rock_scene5 = ExtResource("6_g6cxs")
 rock_scene6 = ExtResource("7_hrk1a")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_4a45y")
-format = 2
-layer_0/tile_data = PackedInt32Array(196611, 0, 0, 196619, 0, 0, 196627, 0, 0, 196635, 0, 0, 196643, 0, 0, 196651, 0, 0, 196659, 0, 0, 196667, 0, 0, 196675, 0, 0, 196683, 0, 0, 720899, 0, 0, 720907, 0, 0, 720915, 0, 0, 720923, 0, 0, 720931, 0, 0, 720939, 0, 0, 720947, 0, 0, 720955, 0, 0, 720963, 0, 0, 720971, 0, 0, 1245187, 0, 0, 1245195, 0, 0, 1245203, 0, 0, 1245211, 0, 0, 1245219, 0, 0, 1245227, 0, 0, 1245235, 0, 0, 1245243, 0, 0, 1245251, 0, 0, 1245259, 0, 0, 1769475, 0, 0, 1769483, 0, 0, 1769491, 0, 0, 1769499, 0, 0, 1769507, 0, 0, 1769515, 0, 0, 1769523, 0, 0, 1769531, 0, 0, 1769539, 0, 0, 1769547, 0, 0, 2293763, 0, 0, 2293771, 0, 0, 2293779, 0, 0, 2293787, 0, 0, 2293795, 0, 0, 2293803, 0, 0, 2293811, 0, 0, 2293819, 0, 0, 2293827, 0, 0, 2293835, 0, 0, 2818051, 0, 0, 2818059, 0, 0, 2818067, 0, 0, 2818075, 0, 0, 2818083, 0, 0, 2818091, 0, 0, 2818099, 0, 0, 2818107, 0, 0, 2818115, 0, 0, 2818123, 0, 0)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
+process_priority = -1
+z_index = 1
 position = Vector2(114, 50)
 scale = Vector2(2, 2)
 texture = ExtResource("8_xgtbm")
 
 [node name="Tempo_Meter" type="AnimatedSprite2D" parent="."]
+process_priority = -1
+z_index = 1
 texture_filter = 1
 position = Vector2(1063, 55)
 scale = Vector2(2, 2)
@@ -95,6 +80,8 @@ autoplay = "default"
 frame_progress = 0.138856
 
 [node name="Ship" parent="." instance=ExtResource("3_nqarc")]
+process_priority = -1
+z_index = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.105
@@ -126,6 +113,7 @@ columns = 3
 layout_mode = 2
 
 [node name="W" type="Button" parent="UI_Manager/P1_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -137,6 +125,7 @@ text = "W"
 layout_mode = 2
 
 [node name="A" type="Button" parent="UI_Manager/P1_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -145,6 +134,7 @@ toggle_mode = true
 text = "A"
 
 [node name="S" type="Button" parent="UI_Manager/P1_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -153,6 +143,7 @@ toggle_mode = true
 text = "S"
 
 [node name="D" type="Button" parent="UI_Manager/P1_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -176,6 +167,7 @@ columns = 3
 layout_mode = 2
 
 [node name="Up" type="Button" parent="UI_Manager/P2_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -187,6 +179,7 @@ text = "↑"
 layout_mode = 2
 
 [node name="Left" type="Button" parent="UI_Manager/P2_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -195,6 +188,7 @@ toggle_mode = true
 text = "←"
 
 [node name="Down" type="Button" parent="UI_Manager/P2_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
@@ -203,6 +197,7 @@ toggle_mode = true
 text = "↓"
 
 [node name="Right" type="Button" parent="UI_Manager/P2_UI"]
+z_index = 3
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_14br3")
