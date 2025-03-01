@@ -5,6 +5,8 @@
 [ext_resource type="Script" path="res://player_movement.gd" id="1_s6grh"]
 [ext_resource type="PackedScene" uid="uid://dpgthkhorl37h" path="res://rock.tscn" id="2_08gi6"]
 [ext_resource type="Script" path="res://sprite_2d.gd" id="3_nse5v"]
+[ext_resource type="Script" path="res://ui_manager.gd" id="4_qh1ot"]
+[ext_resource type="PackedScene" uid="uid://b2bmb5ryw0pt6" path="res://health_manager.tscn" id="4_vrt68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqevw"]
 size = Vector2(117, 116)
@@ -14,20 +16,124 @@ script = ExtResource("1_eq4gh")
 rock_scene = ExtResource("2_08gi6")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Ship" type="CharacterBody2D" parent="."]
 position = Vector2(582, 331)
 script = ExtResource("1_s6grh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship"]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_eqevw")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Ship"]
 texture = ExtResource("1_jh44u")
 script = ExtResource("3_nse5v")
 
+[node name="HealthManager" parent="Ship" instance=ExtResource("4_vrt68")]
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+wait_time = 2.0
 autostart = true
 
+<<<<<<< HEAD
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+=======
+[node name="UI_Manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("4_qh1ot")
+
+[node name="P1_UI" type="GridContainer" parent="UI_Manager"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -151.0
+offset_right = 315.0
+offset_bottom = 61.0
+grow_vertical = 0
+columns = 3
+
+[node name="Control" type="Control" parent="UI_Manager/P1_UI"]
+layout_mode = 2
+
+[node name="W" type="Button" parent="UI_Manager/P1_UI"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+text = "W"
+
+[node name="Control2" type="Control" parent="UI_Manager/P1_UI"]
+layout_mode = 2
+
+[node name="A" type="Button" parent="UI_Manager/P1_UI"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+text = "A"
+
+[node name="S" type="Button" parent="UI_Manager/P1_UI"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+text = "S"
+
+[node name="D" type="Button" parent="UI_Manager/P1_UI"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+text = "D"
+
+[node name="P2_UI" type="GridContainer" parent="UI_Manager"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 932.0
+offset_top = -151.0
+offset_right = 1172.0
+offset_bottom = 61.0
+grow_vertical = 0
+columns = 3
+
+[node name="Control" type="Control" parent="UI_Manager/P2_UI"]
+layout_mode = 2
+
+[node name="Up" type="Button" parent="UI_Manager/P2_UI"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+text = "↑"
+
+[node name="Control2" type="Control" parent="UI_Manager/P2_UI"]
+layout_mode = 2
+
+[node name="Left" type="Button" parent="UI_Manager/P2_UI"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+text = "←"
+
+[node name="Down" type="Button" parent="UI_Manager/P2_UI"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+text = "↓"
+
+[node name="Right" type="Button" parent="UI_Manager/P2_UI"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+text = "→"
+
+[connection signal="timeout" from="Timer" to="Ship" method="_on_timer_timeout"]
+>>>>>>> 08e41b0890a9a855fe6cca5170c97d57803c9077
