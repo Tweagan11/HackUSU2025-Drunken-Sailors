@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhueqp7hbvjsh"]
+[gd_scene load_steps=9 format=3 uid="uid://dhueqp7hbvjsh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_eq4gh"]
 [ext_resource type="PackedScene" uid="uid://dpgthkhorl37h" path="res://rock.tscn" id="2_08gi6"]
-[ext_resource type="PackedScene" uid="uid://1u2wefup3kex" path="res://ship.tscn" id="3_nqarc"]
+[ext_resource type="PackedScene" uid="uid://crb3c0haniqbg" path="res://ship.tscn" id="3_nqarc"]
 [ext_resource type="Script" path="res://ui_manager.gd" id="4_qh1ot"]
 [ext_resource type="Script" path="res://score_timer.gd" id="5_4i5in"]
 [ext_resource type="Script" path="res://label.gd" id="6_aqu8i"]
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="6_w4tdj"]
+[ext_resource type="AudioStream" uid="uid://3ujd2uvs1uw4" path="res://pirate_song.wav" id="8_hs8p7"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_eq4gh")
@@ -132,6 +133,9 @@ script = ExtResource("6_aqu8i")
 wait_time = 0.05
 autostart = true
 script = ExtResource("5_4i5in")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_hs8p7")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Ship" method="_on_timer_timeout"]

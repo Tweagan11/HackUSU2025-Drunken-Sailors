@@ -1,14 +1,10 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=8 format=3 uid="uid://1u2wefup3kex"]
-=======
-[gd_scene load_steps=7 format=3 uid="uid://1u2wefup3kex"]
->>>>>>> Stashed changes
+[gd_scene load_steps=7 format=3 uid="uid://crb3c0haniqbg"]
 
 [ext_resource type="Script" path="res://player_movement.gd" id="1_xa152"]
-[ext_resource type="Texture2D" uid="uid://vxx6523pjb0y" path="res://Sprites/Ship.png" id="2_mkgg1"]
+[ext_resource type="Texture2D" uid="uid://vxx6523pjb0y" path="res://Sprites/Ship.png" id="2_gntic"]
 [ext_resource type="PackedScene" uid="uid://b2bmb5ryw0pt6" path="res://health_manager.tscn" id="4_rsndj"]
+[ext_resource type="Script" path="res://hit_detector.gd" id="5_cfr6x"]
 
-<<<<<<< Updated upstream
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3n5qm"]
 radius = 38.0
 height = 158.0
@@ -16,14 +12,6 @@ height = 158.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqht8"]
 radius = 39.0
 height = 160.0
-=======
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqevw"]
-size = Vector2(31, 78)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqht8"]
-radius = 28.0
-height = 148.0
->>>>>>> Stashed changes
 
 [node name="Ship" type="CharacterBody2D"]
 position = Vector2(582, 331)
@@ -35,11 +23,9 @@ shape = SubResource("CapsuleShape2D_3n5qm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-<<<<<<< Updated upstream
 position = Vector2(-8.58307e-06, 9.53674e-07)
 scale = Vector2(3.70455, 3.70454)
 texture = ExtResource("2_gntic")
-script = ExtResource("3_dqsam")
 
 [node name="HealthManager" parent="." instance=ExtResource("4_rsndj")]
 
@@ -52,26 +38,7 @@ visible = false
 light_mask = 2
 visibility_layer = 2
 position = Vector2(0, 1)
-=======
-scale = Vector2(2.18182, 2.18182)
-texture = ExtResource("2_gqvm7")
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_eqevw")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(1, -2)
-texture = ExtResource("2_5h82f")
-script = ExtResource("3_dqsam")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -3)
-shape = SubResource("RectangleShape2D_eqevw")
-
-[node name="HealthManager" parent="." instance=ExtResource("4_rsndj")]
-
-[node name="RockDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RockDetector"]
->>>>>>> Stashed changes
 shape = SubResource("CapsuleShape2D_dqht8")
+
+[connection signal="area_entered" from="HitDetector" to="." method="_on_hit_detector_area_entered"]
+[connection signal="body_entered" from="HitDetector" to="." method="_on_hit_detector_body_entered"]

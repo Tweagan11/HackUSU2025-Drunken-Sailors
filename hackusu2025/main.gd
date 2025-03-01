@@ -1,12 +1,12 @@
 extends Node
 
 @export var rock_scene: PackedScene
-
-
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spawn_rock() # Replace with function body.
+	spawn_rock()
+	audio_stream_player_2d.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
