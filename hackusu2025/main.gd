@@ -8,6 +8,8 @@ extends Node
 @export var rock_scene6: PackedScene
 var rock_list = []
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var expl_sound: AudioStreamPlayer2D = $ExplosionSound
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +29,6 @@ func spawn_rock() :
 func _on_timer_timeout() -> void:
 	spawn_rock() # Replace with function body.
 
-
-
 func _on_ship_death() -> void:
 	audio_stream_player_2d.stop()
+	expl_sound.play()

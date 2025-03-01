@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://dql1o0lfvix6a" path="res://Sprites/pirate_tempo.png" id="12_x03nu"]
 [ext_resource type="FontFile" uid="uid://cumhqen57amwa" path="res://at01.ttf" id="13_14br3"]
 [ext_resource type="Script" path="res://label.gd" id="14_be05f"]
+[ext_resource type="Script" path="res://time_slow.gd" id="17_sba7k"]
+[ext_resource type="AudioStream" uid="uid://b4tli4m4rdhhc" path="res://Sprites/8-bit-explosion_F.wav" id="18_8ck70"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n1e1b"]
 shader = ExtResource("8_ifvg6")
@@ -252,6 +254,12 @@ script = ExtResource("5_4i5in")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_hs8p7")
 autoplay = true
+
+[node name="TimeSlow" type="Node" parent="."]
+script = ExtResource("17_sba7k")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_8ck70")
 
 [connection signal="death" from="Ship" to="." method="_on_ship_death"]
 [connection signal="hit" from="Ship" to="Sprite2D" method="_on_ship_hit"]

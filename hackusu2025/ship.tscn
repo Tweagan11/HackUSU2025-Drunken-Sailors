@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://crb3c0haniqbg"]
+[gd_scene load_steps=27 format=3 uid="uid://crb3c0haniqbg"]
 
 [ext_resource type="Script" path="res://player_movement.gd" id="1_xa152"]
 [ext_resource type="Texture2D" uid="uid://vxx6523pjb0y" path="res://Sprites/Ship.png" id="2_gntic"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://hit_detector.gd" id="5_cfr6x"]
 [ext_resource type="Texture2D" uid="uid://bot12dtoj63eg" path="res://Sprites/Animations/Ship.png" id="6_jj1wm"]
 [ext_resource type="Shader" uid="uid://caoquhlnny01e" path="res://ship.tres" id="6_ywbu4"]
+[ext_resource type="Script" path="res://hit_part.gd" id="8_hu5f4"]
+[ext_resource type="Script" path="res://cpu_particles_2d.gd" id="8_iopx5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3n5qm"]
 radius = 38.0
@@ -127,6 +129,10 @@ _data = {
 "hit_flash": SubResource("Animation_qle0o")
 }
 
+[sub_resource type="Curve" id="Curve_eemxs"]
+_data = [Vector2(0.012, 0.986616), 0.0, 0.0, 0, 0, Vector2(0.696, 0.772478), -1.11531, -1.11531, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="Ship" type="CharacterBody2D"]
 position = Vector2(582, 331)
 scale = Vector2(0.75, 0.75)
@@ -169,6 +175,43 @@ libraries = {
 "": SubResource("AnimationLibrary_fhqp8")
 }
 
+[node name="HitPart" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 44.65
+initial_velocity_max = 263.9
+scale_amount_min = 8.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_eemxs")
+script = ExtResource("8_hu5f4")
+
+[node name="DeathPart" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 90
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 44.65
+initial_velocity_max = 263.9
+scale_amount_min = 8.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_eemxs")
+color = Color(0.181803, 0.108272, 0.0151356, 1)
+script = ExtResource("8_iopx5")
+
 [connection signal="death" from="." to="." method="_on_death"]
+[connection signal="death" from="." to="DeathPart" method="_on_ship_death"]
+[connection signal="hit" from="." to="HitPart" method="_on_ship_hit"]
 [connection signal="area_entered" from="HitDetector" to="." method="_on_hit_detector_area_entered"]
 [connection signal="body_entered" from="HitDetector" to="." method="_on_hit_detector_body_entered"]

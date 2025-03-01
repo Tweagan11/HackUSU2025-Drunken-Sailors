@@ -102,8 +102,7 @@ func _on_hit_detector_body_entered(body: Node2D) -> void:
 
 func _on_death() -> void:
 	#Shake Screen
-	#var time_slow = get_node("../TimeSlow")
-	#time_slow.start()
+	
 	Engine.time_scale = 0.3
 	print("death emitted!")
 	hf_anim.play("hit_flash")
