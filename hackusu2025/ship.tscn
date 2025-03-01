@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0ikcwuoemqlf"]
+[gd_scene load_steps=12 format=3 uid="uid://crb3c0haniqbg"]
 
 [ext_resource type="Script" path="res://player_movement.gd" id="1_xa152"]
 [ext_resource type="Texture2D" uid="uid://vxx6523pjb0y" path="res://Sprites/Ship.png" id="2_gntic"]
-[ext_resource type="PackedScene" path="res://health_manager.tscn" id="4_rsndj"]
+[ext_resource type="Shader" uid="uid://dayo3u1p3jiax" path="res://hit_flash.tres" id="2_rnbwa"]
+[ext_resource type="PackedScene" uid="uid://b2bmb5ryw0pt6" path="res://health_manager.tscn" id="4_rsndj"]
 [ext_resource type="Script" path="res://hit_detector.gd" id="5_cfr6x"]
 [ext_resource type="Texture2D" uid="uid://bot12dtoj63eg" path="res://Sprites/Animations/Ship.png" id="5_dx2ny"]
 
@@ -10,73 +11,51 @@
 radius = 38.0
 height = 158.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44tgg"]
+shader = ExtResource("2_rnbwa")
+shader_parameter/enabled = true
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqht8"]
 radius = 39.0
 height = 160.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w055b"]
-atlas = ExtResource("5_dx2ny")
-region = Rect2(0, 0, 176, 336)
+[sub_resource type="Animation" id="Animation_i4lp3"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6wuc4"]
-atlas = ExtResource("5_dx2ny")
-region = Rect2(176, 0, 176, 336)
+[sub_resource type="Animation" id="Animation_oceux"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jc0ly"]
-atlas = ExtResource("5_dx2ny")
-region = Rect2(352, 0, 176, 336)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y2y8y"]
-atlas = ExtResource("5_dx2ny")
-region = Rect2(528, 0, 176, 336)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_11ggm"]
-atlas = ExtResource("5_dx2ny")
-region = Rect2(0, 336, 176, 336)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jjpv2"]
-atlas = ExtResource("5_dx2ny")
-region = Rect2(176, 336, 176, 336)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rxmoq"]
-atlas = ExtResource("5_dx2ny")
-region = Rect2(352, 336, 176, 336)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7x4jb"]
-atlas = ExtResource("5_dx2ny")
-region = Rect2(528, 336, 176, 336)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ivfdy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w055b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6wuc4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jc0ly")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y2y8y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_11ggm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jjpv2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rxmoq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7x4jb")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xhbng"]
+_data = {
+"RESET": SubResource("Animation_oceux"),
+"hit_flash": SubResource("Animation_i4lp3")
+}
 
 [node name="Ship" type="CharacterBody2D"]
 position = Vector2(582, 331)
@@ -90,6 +69,7 @@ shape = SubResource("CapsuleShape2D_3n5qm")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
+material = SubResource("ShaderMaterial_44tgg")
 position = Vector2(-8.58307e-06, 9.53674e-07)
 scale = Vector2(3.70455, 3.70454)
 texture = ExtResource("2_gntic")
@@ -107,10 +87,10 @@ visibility_layer = 2
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_dqht8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.55, 0.55)
-sprite_frames = SubResource("SpriteFrames_ivfdy")
-autoplay = "default"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xhbng")
+}
 
 [connection signal="area_entered" from="HitDetector" to="." method="_on_hit_detector_area_entered"]
 [connection signal="body_entered" from="HitDetector" to="." method="_on_hit_detector_body_entered"]

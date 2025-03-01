@@ -7,26 +7,21 @@
 radius = 46.0
 height = 168.0
 
-[node name="Rock" type="Node2D"]
+[node name="Rock" type="CharacterBody2D"]
 scale = Vector2(0.45, 0.45)
 script = ExtResource("1_p3x3d")
 
-[node name="Area2D" type="Area2D" parent="."]
-z_index = -1
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-20, 2)
 scale = Vector2(6, 6)
 texture = ExtResource("2_5pfpu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_3e3t2")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 texture_filter = 1
 position = Vector2(0.49999, 0.499996)
 scale = Vector2(11.85, 6.45)
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

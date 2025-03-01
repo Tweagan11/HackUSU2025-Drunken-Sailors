@@ -14,6 +14,7 @@ grow_vertical = 2
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 441.0
 offset_top = 340.0
 offset_right = 751.0

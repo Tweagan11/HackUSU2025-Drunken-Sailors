@@ -129,6 +129,7 @@ script = ExtResource("5_4i5in")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_hs8p7")
 
+[connection signal="death" from="Ship" to="." method="_on_ship_death"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Ship" method="_on_timer_timeout"]
 [connection signal="timeout" from="Score_Timer" to="Score_Timer" method="_on_timeout"]
