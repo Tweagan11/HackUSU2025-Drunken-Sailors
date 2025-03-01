@@ -1,4 +1,5 @@
 class_name PlayerMovement extends CharacterBody2D
+signal hit
 
 var speed = 3000.0
 @onready var direction = Vector2.ZERO
@@ -56,3 +57,4 @@ func move(delta):
 
 func _on_timer_timeout() -> void:
 	move(global_delta)
+	
