@@ -15,17 +15,14 @@ size = Vector2(117, 116)
 script = ExtResource("1_eq4gh")
 rock_scene = ExtResource("2_08gi6")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 [node name="Ship" type="CharacterBody2D" parent="."]
 position = Vector2(582, 331)
 script = ExtResource("1_s6grh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ship"]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_eqevw")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 [node name="Sprite2D" type="Sprite2D" parent="Ship"]
 texture = ExtResource("1_jh44u")
 script = ExtResource("3_nse5v")
@@ -33,7 +30,6 @@ script = ExtResource("3_nse5v")
 [node name="HealthManager" parent="Ship" instance=ExtResource("4_vrt68")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
 wait_time = 2.0
 autostart = true
 
