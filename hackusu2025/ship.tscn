@@ -1,33 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://1u2wefup3kex"]
+[gd_scene load_steps=6 format=3 uid="uid://1u2wefup3kex"]
 
 [ext_resource type="Script" path="res://player_movement.gd" id="1_xa152"]
-[ext_resource type="Texture2D" uid="uid://cuokto4jlghbm" path="res://icon.svg" id="2_5h82f"]
-[ext_resource type="Script" path="res://sprite_2d.gd" id="3_dqsam"]
+[ext_resource type="Texture2D" uid="uid://bu7cl70kjffge" path="res://Sprites/Ship.png" id="2_mkgg1"]
 [ext_resource type="PackedScene" uid="uid://b2bmb5ryw0pt6" path="res://health_manager.tscn" id="4_rsndj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqevw"]
-size = Vector2(117, 116)
+[sub_resource type="GDScript" id="GDScript_1v57y"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqht8"]
-radius = 28.0
-height = 148.0
+radius = 24.0
+height = 114.0
 
 [node name="Ship" type="CharacterBody2D"]
 position = Vector2(582, 331)
 script = ExtResource("1_xa152")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_eqevw")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -2)
-texture = ExtResource("2_5h82f")
-script = ExtResource("3_dqsam")
+position = Vector2(-2.28572, -2)
+scale = Vector2(3.15584, 2.85714)
+texture = ExtResource("2_mkgg1")
+script = SubResource("GDScript_1v57y")
 
 [node name="HealthManager" parent="." instance=ExtResource("4_rsndj")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -1)
+shape = SubResource("CapsuleShape2D_dqht8")
 
 [node name="RockDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RockDetector"]
+position = Vector2(-3, -1)
 shape = SubResource("CapsuleShape2D_dqht8")
