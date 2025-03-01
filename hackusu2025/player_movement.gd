@@ -12,6 +12,8 @@ var speed = 3000.0
 
 var ROCK_SIZE = 50
 
+var hit_bool = false
+
 var p1_move = Vector2.ZERO
 var p2_move = Vector2.ZERO
 
@@ -88,7 +90,8 @@ func bounce_ship(body):
 
 
 func _on_hit_detector_body_entered(body: Node2D) -> void:
-	if body.get_collision_layer() == 1:
+	if body.name != "Ship" or hit_bool == false:
+		hit_bool = true
 		hit.emit()
 		$HealthManager.hp -= 1
 		bounce_ship(body)
@@ -99,12 +102,15 @@ func _on_hit_detector_body_entered(body: Node2D) -> void:
 
 func _on_death() -> void:
 	#Shake Screen
+	#var time_slow = get_node("../TimeSlow")
+	#time_slow.start()
+	Engine.time_scale = 0.3
 	print("death emitted!")
 	hf_anim.play("hit_flash")
-	hf_anim.play("hit_flash")
-	hf_anim.play("hit_flash")
 	score_timer.stop()
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(0.6).timeout
 	velocity.x *= .1
 	velocity.y *= .1
+	move_and_slide()
+	Engine.time_scale = 1
 	GameManager.load_scene("res://game_over.tscn")

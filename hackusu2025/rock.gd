@@ -1,6 +1,6 @@
 extends Node2D
 
-var ROCK_SPEED = 1
+var ROCK_SPEED = 30
 var ROCK_SIZE = 32
 var rng = RandomNumberGenerator.new()
 
@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	position.y += ROCK_SPEED
+	position.y += ROCK_SPEED * delta
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

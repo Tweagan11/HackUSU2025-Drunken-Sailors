@@ -151,7 +151,7 @@ scale = Vector2(3.70455, 3.70454)
 texture = ExtResource("2_gntic")
 
 [node name="HealthManager" parent="." instance=ExtResource("4_rsndj")]
-hp = 4
+hp = 2
 
 [node name="HitDetector" type="Area2D" parent="."]
 light_mask = 2
