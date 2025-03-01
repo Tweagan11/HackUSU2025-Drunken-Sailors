@@ -10,6 +10,7 @@ size = Vector2(117, 116)
 [node name="Main" type="Node"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(582, 331)
 script = ExtResource("1_s6grh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -19,3 +20,9 @@ shape = SubResource("RectangleShape2D_eqevw")
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("1_jh44u")
 script = ExtResource("3_nse5v")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]
