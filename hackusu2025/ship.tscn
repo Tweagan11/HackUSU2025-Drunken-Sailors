@@ -15,6 +15,7 @@ height = 160.0
 
 [node name="Ship" type="CharacterBody2D"]
 position = Vector2(582, 331)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_xa152")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
