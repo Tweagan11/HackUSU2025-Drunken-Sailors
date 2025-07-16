@@ -11,4 +11,6 @@ var index = 0
 
 func _on_ship_hit() -> void:
 	index += 1
+	if index > 4:
+		index = 4
 	texture = hearts[index]

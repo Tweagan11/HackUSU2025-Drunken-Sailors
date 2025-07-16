@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d21xwspif0jff" path="res://Sprites/sea1.png" id="2_qoxar"]
 [ext_resource type="Script" path="res://final_score.gd" id="3_0fff5"]
 [ext_resource type="Script" path="res://main_menu_button.gd" id="3_6edg3"]
-[ext_resource type="StyleBox" path="res://button_style.tres" id="3_20vor"]
+[ext_resource type="StyleBox" uid="uid://b0o4r2gukyf6a" path="res://button_style.tres" id="3_20vor"]
 [ext_resource type="StyleBox" uid="uid://elwulpb1risa" path="res://game_over.tres" id="7_xbvj3"]
 [ext_resource type="AudioStream" uid="uid://crhvptn33hy4t" path="res://Sprites/ocean-sound-of-the-waves_120bpm_D_minor.wav" id="11_wopje"]
 
