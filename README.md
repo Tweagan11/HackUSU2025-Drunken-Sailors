@@ -84,6 +84,6 @@ All assets were created specifically for this project:
 
 - **Me** – Player input systems, movement logic, collision detection, UI elements, score logic  
 - **Chase Hammond** (chammond123)  
-- **Dennis Panchekha** (dpanc)  
+- **Dennis Panchekha** (dpanchekha)  
 
 ---
