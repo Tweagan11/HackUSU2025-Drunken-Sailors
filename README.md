@@ -87,3 +87,7 @@ All assets were created specifically for this project:
 - **Dennis Panchekha** (dpanchekha)  
 
 ---
+
+![Gameplay](img/gameplay.png)
+![Menu](img/menu.png)
+![How To Play](img/htp.png)
